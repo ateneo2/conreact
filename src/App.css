@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+#grupo {
+    background-color: #9c83f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
