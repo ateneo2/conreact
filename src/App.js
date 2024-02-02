@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 //importo archivo demo botones bootstrap
@@ -17,6 +18,33 @@ function App() {
     //function ButtonUsage() {
     //    return <Button variant="contained">Hello world</Button>;
     //}
+    const [perso, setPerso] = useState([]);
+    const makeAPICall = async () => {
+        try {
+            
+            const response = await fetch('http://localhost:8080/personas/traer', { mode: 'cors' });
+            const data = await response.json();
+            //quiero guardarla como objeto para pasarla a la app
+            const muestra = JSON.stringify(data);
+            setPerso(muestra);
+            
+
+            console.log({ data });
+
+
+        }
+        catch (e) {
+            console.log(e)
+
+        }
+
+    }
+    useEffect(() => {
+        makeAPICall();
+        
+
+            })
+
 
     return (
         <><React.Fragment>
@@ -29,8 +57,15 @@ function App() {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
 
-                    Este contenido que se renderiza "invocado " por index.js, dentro del div "root" que est&aacute; en /public/index.html
+                    {/*Este contenido que se renderiza "invocado " por index.js, dentro del div "root" que est&aacute; en /public/index.html */}
 
+                    
+                    <h3>Muestro datos de la base de datos</h3>
+
+                    <p>{perso}</p>
+
+                    {/* Lo muestro como string que guardo un json completo*/}
+                    <br></br>
 
                     {/*<ButtonUsage> Este boton es un componente de UI de "mui"", ver en </ButtonUsage>*/}
                     <h2>
