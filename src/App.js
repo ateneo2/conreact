@@ -14,6 +14,9 @@ import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField'; 
 import BasicExample from './GrupoBotonesBotstrp';
 import ColorCheckboxes from './ColorCheckBoxes';
+import TablaPersonas from './TablaPersonas';
+import BasicTable from "./TablaPersonas";
+
 function App() {
     //function ButtonUsage() {
     //    return <Button variant="contained">Hello world</Button>;
@@ -29,7 +32,7 @@ function App() {
             setPerso(muestra);
             
 
-            console.log({ data });
+            console.log({ perso });
 
 
         }
@@ -47,13 +50,13 @@ function App() {
 
 
     return (
-        <><React.Fragment>
-            <CssBaseline />
-            {/* The rest of your application */}
+       
+            
+           
 
-
+            
             <div className="App">
-
+            <CssBaseline />
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
 
@@ -61,9 +64,11 @@ function App() {
 
                     
                     <h3>Muestro datos de la base de datos</h3>
-
-                    <p>{perso}</p>
-
+                </header>
+                <div id="contenido">
+                    {/*//<p>{perso}</p>
+                    ahora hagamos una tabla */}
+                    <BasicTable/>
                     {/* Lo muestro como string que guardo un json completo*/}
                     <br></br>
 
@@ -79,11 +84,11 @@ function App() {
                     </a>
                     <h3>Demo de grupo de botones react-bootstrap</h3>
                     <BasicExample />
-                </header>
+                
 
 
 
-            </div>
+            
             <Container maxWidth="sm">
                 <Box sx={{ my: 3 }}>
                     <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
@@ -105,8 +110,8 @@ function App() {
                 </Box>
             </Container>
 
-        </React.Fragment>
-            
+
+            </div> 
 
     <div id="grupo">
             <h3>Botones usando solo bootstrap (no reactbootstrap)</h3>
@@ -116,13 +121,14 @@ function App() {
                 <button type="button" className="btn btn-primary">Right</button>
 
                 </div>
-            </div>
+     </div>
 
-            <h3>
-            Checkboxes de colores
-            </h3>
-            <ColorCheckboxes/>
-        </>
+        <h3>
+        Checkboxes de colores
+        </h3>
+        <ColorCheckboxes/>
+            
+</div>
     );
 }
        
